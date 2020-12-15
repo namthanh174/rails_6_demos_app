@@ -9,6 +9,6 @@ class CreatePosts < ActiveRecord::Migration[6.0]
     end
 
     add_foreign_key :posts, :users, column: :user_id
-    add_foreign_key :posts, :users, column: :thread_id
+    add_foreign_key :posts, :posts, column: :thread_id
   end
 end
