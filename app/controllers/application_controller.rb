@@ -3,8 +3,17 @@ class ApplicationController < ActionController::Base
   before_action :config_devise_params, if: :devise_controller?
 
   private
+    def member_controller?
+      return false if controller_path == "home"
+      true
+    end
+
     def layout_by_resource
-      devise_controller? ? "session" : "application"
+      case
+      when devise_controller? then "session"
+      when member_controller? then "member"
+      else "application"
+      end
     end
 
     def config_devise_params

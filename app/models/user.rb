@@ -43,6 +43,10 @@ class User < ApplicationRecord
   has_many :followers, -> { Bond.following }, through: :inward_bonds, source: :user
   before_save :ensure_proper_name_case
 
+  def to_param
+    username
+  end
+  
   def login
     @login || username || email
   end
