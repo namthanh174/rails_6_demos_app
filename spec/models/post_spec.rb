@@ -16,7 +16,7 @@
 #
 # Foreign Keys
 #
-#  fk_rails_...  (thread_id => users.id)
+#  fk_rails_...  (thread_id => posts.id)
 #  fk_rails_...  (user_id => users.id)
 #
 require 'rails_helper'
